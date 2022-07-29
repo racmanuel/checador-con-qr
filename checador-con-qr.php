@@ -27,7 +27,8 @@ function new_modify_user_table_row( $val, $column_name, $user_id ) {
         case 'qr' :
             $name_user = get_user_meta($user_id, 'first_name', true);
             $last_name_user = get_user_meta($user_id, 'last_name', true);
-            return '<img src="'.$qrcode->render($last_name_user).'" alt="QR Code" />';
+            $data = $name_user.' '.$last_name_user;
+            return '<img src="'.$qrcode->render($data).'" alt="QR Code" />';
         case 'xyz' :
             return '';
         default:
